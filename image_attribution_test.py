@@ -89,7 +89,7 @@ model_2.load_state_dict(state1['state_dict_class'])
 
 
 def test(batch, labels):
-    print('batch, labels', batch, labels)
+    print('labels', labels)
     model.eval()
     model_2.eval()
     with torch.no_grad():
