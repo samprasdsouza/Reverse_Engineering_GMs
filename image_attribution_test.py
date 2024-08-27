@@ -92,7 +92,7 @@ def test(batch, labels):
     print('labels', labels)
     model.eval()
     model_2.eval()
-    print('batch-type', batch.type(torch.cuda.FloatTensor))
+    print(f"Batch shape: {batch.shape}")
     with torch.no_grad():
         print('here')
         y,low_freq_part,max_value ,y_orig,residual, y_trans,residual_gray =model(batch.type(torch.cuda.FloatTensor))
