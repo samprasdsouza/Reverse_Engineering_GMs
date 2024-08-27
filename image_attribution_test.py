@@ -78,8 +78,7 @@ state = {
     
 }
 
-
-state1 = torch.load(model_dir)
+state1 = torch.load(opt.model_dir)
 optimizer.load_state_dict(state1['optimizer_1'])
 model.load_state_dict(state1['state_dict_cnn'])
 optimizer_2.load_state_dict(state1['optimizer_2'])
