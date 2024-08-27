@@ -59,7 +59,7 @@ class DnCNN(nn.Module):
         
         residual_gray=0.299*residual_1[:,0,:,:].clone()+0.587*residual_1[:,1,:,:].clone()+0.114*residual_1[:,2,:,:].clone()
         
-        thirdPart_fft_1=torch.fft(residual_gray, signal_ndim=2, onesided=False)
+        thirdPart_fft_1=torch.rfft(residual_gray, signal_ndim=2, onesided=False)
         
         thirdPart_fft_1_orig=thirdPart_fft_1.clone()
         
