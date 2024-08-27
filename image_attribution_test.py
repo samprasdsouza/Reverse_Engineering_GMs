@@ -93,7 +93,9 @@ def test(batch, labels):
     model.eval()
     model_2.eval()
     with torch.no_grad():
+        print('here')
         y,low_freq_part,max_value ,y_orig,residual, y_trans,residual_gray =model(batch.type(torch.cuda.FloatTensor))
+        print('y, low', y, low_freq_part)
         y_2=torch.unsqueeze(y.clone(),1)
         classes, features=model_2(y_2)
         classes_f=torch.max(classes, dim=1)[0]
