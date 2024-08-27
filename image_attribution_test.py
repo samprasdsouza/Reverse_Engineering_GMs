@@ -109,8 +109,8 @@ def test(batch, labels):
     return y, loss.item(), loss1.item(),loss2.item(),loss3.item(),loss_c.item(),loss5.item(),y_orig, features,residual,torch.max(classes, dim=1)[1], classes[:,1]
 
 
-print(len(test_set))
-print(test_set.class_to_idx)
+print('len-test-st', len(test_set))
+print('test-set', test_set.class_to_idx)
 epochs=2
 
 
@@ -122,7 +122,7 @@ for epoch in range(epochs):
     itr=0
     
     for batch_idx_test, (inputs_test,labels_test) in enumerate(test_loader):
-
+        print('testing-loader', batch_idx_test)
         out,loss,loss1,loss2,loss3,loss4,loss5, out_orig,features,residual,pred,scores=test(Variable(torch.FloatTensor(inputs_test)),Variable(torch.LongTensor(labels_test)))
 
         if flag1==0:
