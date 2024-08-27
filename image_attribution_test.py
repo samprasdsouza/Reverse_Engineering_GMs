@@ -31,7 +31,7 @@ parser.add_argument('--model_dir', default='./models')
 
 
 opt = parser.parse_args()
-print(opt)
+print('opt', opt)
 print("Random Seed: ", opt.seed)
 
 device=torch.device("cuda:0")
@@ -78,8 +78,8 @@ state = {
     
 }
 
-print('model_dir', model_dir)
-state1 = torch.load(model_dir)
+print('model_dir', opt.model_dir)
+state1 = torch.load(opt.model_dir)
 optimizer.load_state_dict(state1['optimizer_1'])
 model.load_state_dict(state1['state_dict_cnn'])
 optimizer_2.load_state_dict(state1['optimizer_2'])
