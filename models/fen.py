@@ -71,7 +71,6 @@ class DnCNN(nn.Module):
         print('thirdPart_fft_1-shape', thirdPart_fft_1.shape)
         print('thirdPart_fft_1-dim', thirdPart_fft_1.dim())
         
-        
         thirdPart_fft_1_orig=thirdPart_fft_1.clone()
         
         thirdPart_fft_1[:,:,:,0],thirdPart_fft_1[:,:,:,1]=fftshift(thirdPart_fft_1[:,:,:,0],thirdPart_fft_1[:,:,:,1])
