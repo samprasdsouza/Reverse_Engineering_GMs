@@ -56,10 +56,13 @@ class DnCNN(nn.Module):
         y = inputs
         print('inputs:', y)
         residual = self.layers(y)
+        print('residual',  residual)
         residual_1 = residual.clone()
-        
+        print('residual_1', residual_1)
         residual_gray=0.299*residual_1[:,0,:,:].clone()+0.587*residual_1[:,1,:,:].clone()+0.114*residual_1[:,2,:,:].clone()
+        print('residual_gray', residual_gray)
         thirdPart_fft_1=torch.rfft(residual_gray, signal_ndim=2, onesided=False)
+        print('thirdPart_fft_1', thirdPart_fft_1)
         #thirdPart_fft_1 = torch.fft.fftn(residual_gray, dim=(-2, -1))
 
         thirdPart_fft_1_orig=thirdPart_fft_1.clone()
