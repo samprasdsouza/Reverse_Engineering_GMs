@@ -65,13 +65,13 @@ class DnCNN(nn.Module):
         print('residual_grap-dim', residual_gray.dim())
         
         # thirdPart_fft_1=torch.rfft(residual_gray, signal_ndim=2, onesided=False)
-        thirdPart_fft_1 = torch.fft.fft2(residual_gray)  # Equivalent to torch.rfft with onesided=False
+        # thirdPart_fft_1 = torch.fft.fft2(residual_gray)  # Equivalent to torch.rfft with onesided=False
+        thirdPart_fft_1 = torch.view_as_real(torch.fft.fft2(residual_gray))
         print('thirdPart_fft_1', thirdPart_fft_1)
         print('thirdPart_fft_1-shape', thirdPart_fft_1.shape)
         print('thirdPart_fft_1-dim', thirdPart_fft_1.dim())
         
-        #thirdPart_fft_1 = torch.fft.fftn(residual_gray, dim=(-2, -1))
-
+        
         thirdPart_fft_1_orig=thirdPart_fft_1.clone()
         
         thirdPart_fft_1[:,:,:,0],thirdPart_fft_1[:,:,:,1]=fftshift(thirdPart_fft_1[:,:,:,0],thirdPart_fft_1[:,:,:,1])
