@@ -54,6 +54,7 @@ class DnCNN(nn.Module):
 
     def forward(self, inputs):
         y = inputs
+        print('inputs:', y)
         residual = self.layers(y)
         residual_1 = residual.clone()
         
