@@ -128,7 +128,7 @@ for epoch in range(epochs):
     for batch_idx_test, (inputs_test,labels_test) in enumerate(test_loader):
         print('testing-loader', batch_idx_test, inputs_test, labels_test)
         out,loss,loss1,loss2,loss3,loss4,loss5, out_orig,features,residual,pred,scores=test(Variable(torch.FloatTensor(inputs_test)),Variable(torch.LongTensor(labels_test)))
-        print('here')
+        print('here', out,loss,loss1,loss2,loss3,loss4,loss5, out_orig,features,residual,pred,scores)
         if flag1==0:
             all_y_test=labels_test
             all_y_pred_test=pred.detach()
