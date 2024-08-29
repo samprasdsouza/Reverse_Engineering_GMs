@@ -124,6 +124,20 @@ for epoch in range(epochs):
     
     for batch_idx_test, (inputs_test,labels_test) in enumerate(test_loader):
         out,loss,loss1,loss2,loss3,loss4,loss5, out_orig,features,residual,pred_1,scores=test(Variable(torch.FloatTensor(inputs_test)),Variable(torch.LongTensor(labels_test)))
+        print('out', out)
+        print('out', out)
+        print('loss', loss)
+        print('loss1', loss1)
+        print('loss2', loss2)
+        print('loss3', loss3)
+        print('loss4', loss4)
+        print('loss5', loss5)
+        print('out_orig', out_orig)
+        print('features', features)
+        print('residual', residual)
+        print('pred_1', pred_1)
+        print('scores', scores)
+        
 
         if flag1==0:
             all_y_test=labels_test
@@ -136,6 +150,7 @@ for epoch in range(epochs):
             all_y_test=torch.cat([all_y_test,labels_test], dim=0)
             all_scores=torch.cat([all_scores,scores], dim=0)
     fpr1, tpr1, thresholds1 = metrics.roc_curve(all_y_test, np.asarray(all_scores.cpu()), pos_label=1)
+
     print("testing AUC is:", metrics.auc(fpr1, tpr1))
             
       
